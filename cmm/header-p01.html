@@ -1,0 +1,60 @@
+<div class="action-box">
+	<div class="mdl-grid">
+		<!-- ko if:vo.mode() == 'login' -->
+		<div class="mdl-cell mdl-cell--6-col">
+			<button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width:100%" data-bind="click:on.google">Google</button>
+			<button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="width:100%; margin-top:12px;" data-bind="click:on.facebook">facebook</button>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col">
+			<div id="header-p01-login-id" class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield" style="width:100%">
+				<input type="email" class="mdl-textfield__input" data-bind="value:vo.loginId">
+				<label class="mdl-textfield__label">id(email)</label>
+				<span class="mdl-textfield__error">id를 email로 입력하세요</span>
+			</div>
+			<div id="header-p01-login-pwd" class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield" style="width:100%">
+				<input type="password" class="mdl-textfield__input" pattern=".{8}" data-bind="value:vo.loginPwd">
+				<label class="mdl-textfield__label">password</label>
+				<span class="mdl-textfield__error">password를 8자이상 입력하세요</span>
+			</div>
+			<div style="text-align:right">
+				<button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect" data-bind="click:on.idpwd">ID/PWD</button>
+			</div>
+		</div>
+		<!-- /ko -->
+		<!-- ko if:vo.mode() == 'join' -->
+		<div class="mdl-cell mdl-cell--6-col">
+			<div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield" style="width:100%">
+				<input type="email" class="mdl-textfield__input">
+				<label class="mdl-textfield__label">id(email)</label>
+			</div>
+			<div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield" style="width:100%">
+				<input type="password" class="mdl-textfield__input">
+				<label class="mdl-textfield__label">password</label>
+			</div>
+			<div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield" style="width:100%">
+				<input type="text" class="mdl-textfield__input">
+				<label class="mdl-textfield__label">name</label>
+			</div>
+			<div style="text-align:right">
+				<button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-button mdl-js-ripple-effect">회원가입</button>
+			</div>
+		</div>		
+		<!-- /ko -->
+	</div>
+</div>
+
+<div class="action-bar">
+	<a href="#" data-bind="click:on.mode">
+		<span class="mdl-button mdl-button--icon mdl-js-button">
+		<i class="material-icons">
+		<!-- ko if:vo.mode() == 'login' -->person_add<!-- /ko -->
+		<!-- ko if:vo.mode() == 'join' -->people<!-- /ko -->
+		</i>
+		</span>
+		<!-- ko if:vo.mode() == 'login' -->회원가입<!-- /ko -->
+		<!-- ko if:vo.mode() == 'join' -->로그인<!-- /ko -->
+	</a>
+	<button class="mdl-button mdl-button--icon mdl-button--colored mdl-js-button" data-bind="click:on.close">
+		<i class="material-icons">close</i>
+	</button>
+</div>

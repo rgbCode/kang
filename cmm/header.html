@@ -1,0 +1,23 @@
+<div class="mdl-layout__header-row">
+	<span class="mdl-layout-title" data-bind="text:vo.title">Title</span>
+	<!-- ko if:vo.menus().length > 0 -->
+	<nav class="mdl-navigation mdl-hide-phone" data-bind="foreach:vo.menus">
+		<a class="mdl-navigation__link" data-bind="text: $data.text, attr:{href: $data.link}">Link</a>
+	</nav>
+	<!-- /ko -->
+	<div class="mdl-layout-spacer"></div>
+	<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-bind="click:on.auth">
+		<i class="material-icons">
+			<!-- ko if:vo.login -->account_circle<!-- /ko -->
+			<!-- ko ifnot:vo.login -->power_settings_new<!-- /ko -->
+		</i>
+	</button>
+	<!-- ko if:vo.menus().length > 0 -->
+	<button id="header-menus" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" data-bind="click:on.auth">
+		<i class="material-icons">more_vert</i>
+	</button>
+	<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="header-menus" data-bind="foreach:vo.menus">
+		<li class="mdl-menu__item"><a data-bind="text:$data.text, attr:{href: $data.link}">some action</a></li>
+	</ul>
+	<!-- /ko -->
+</div>
